@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste Quatro Digital</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Caio Cesar">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Teste Quatro Digital">
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/boot.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="container">
+        <div class="content">
+                
+        <h1 id="title"></h1> 
+                <p id="description"></p> 
+                <p id="link"></p> 
+        <div id="images"></div> 
+   
+        </div>
+
+    </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        $(function() {
+        
+        $.getJSON("http://api.flickr.com/services/feeds/groups_pool.gne?id=675729@N22&lang=en-us&format=json&jsoncallback=?", function(data){
+        var prod = [];
+        $.each(data.items, function(i,item){
+            console.log(item);
+            $("<img/>").attr("src", item.media.m).appendTo("#images")
+        });
+    });
+    });
+    </script>
+</body>
+</html>
+    
